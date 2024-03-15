@@ -1,0 +1,61 @@
+[1m[34m                   /-    
+                  ooo:    
+                 yoooo/    
+                yooooooo    
+               yooooooooo    
+              yooooooooooo    
+            .yooooooooooooo    
+           .oooooooooooooooo    
+          .oooooooarcoooooooo    
+         .ooooooooo-oooooooooo    
+        .ooooooooo-  oooooooooo    
+       :ooooooooo.    :ooooooooo    
+      :ooooooooo.      :ooooooooo    
+     :oooarcooo         .oooarcooo    
+    :ooooooooy           .ooooooooo    
+   [34m:ooooooooo   [32m/ooooooooooooooooooo    
+  [34m:ooooooooo      [32m.-ooooooooooooooooo.    
+  [34mooooooooo-            [32m-ooooooooooooo.    
+ [34mooooooooo-                [32m.-oooooooooo.    
+[34mooooooooo.                    [32m-ooooooooo[0m[1G[19A[0m[?25l[?7l[44C[1m[34mqed[0m@[1m[34marchtop[0m
+
+[44C-----------
+
+[44C[0m[1m[34mOS[0m: [0mArcoLinux rolling x86_64
+
+[44C[0m[1m[34mHost[0m: [0mROG Zephyrus G14 GA401QM_GA401QM (1.0)
+[44C[0m[1m[34mKernel[0m: [0m6.7.8-arch1-1.1-g14
+
+[44C[0m[1m[34mUptime[0m: [0m52 mins
+
+[44C[0m[1m[34mPackages[0m: [0m2080 (pacman)
+
+[44C[0m[1m[34mShell[0m: [0mbash 5.2.26
+[44C[0m[1m[34mDisplay (LQ140M1JW49)[0m: [0m1920x1080 @ 60Hz [Built-in]
+[44C[0m[1m[34mWM[0m: [0mHyprland (Wayland)
+
+[44C[0m[1m[34mTheme[0m: [0mArc-Dark [GTK2/3]
+[44C[0m[1m[34mIcons[0m: [0mSardi-Arc [GTK2/3]
+[44C[0m[1m[34mFont[0m: [0mNoto Sans (11pt) [GTK2/3]
+[44C[0m[1m[34mCursor[0m: [0mBibata-Modern-Ice
+[44C[0m[1m[34mTerminal[0m: [0meltzminal
+
+[44C[0m[1m[34mCPU[0m: [0mAMD Ryzen 9 5900HS (16) @ 4.68 GHz
+
+[44C[0m[1m[34mGPU[0m: [0mAMD Radeon Vega Series / Radeon Vega Mobile Series
+
+[44C[0m[1m[34mMemory[0m: [0m2.38 GiB / 15.03 GiB (16%)
+
+[44C[0m[1m[34mDisk (]8;;file:///\/]8;;\)[0m: [0m152.10 GiB / 805.60 GiB (19%) - ext4
+
+[44C[0m[1m[34mBattery[0m: [0m84% [Charging]
+
+[44C[0m[1m[34mLocale[0m: [0men_US.UTF-8
+[44C
+[44C[40;30m███[41;31m███[42;32m███[43;33m███[44;34m███[45;35m███[46;36m███[47;37m███[0m
+[44C[1;40;30;100;90m███[1;41;31;101;91m███[1;42;32;102;92m███[1;43;33;103;93m███[1;44;34;104;94m███[1;45;35;105;95m███[1;46;36;106;96m███[1;47;37;107;97m███[0m
+
+[?7h[?25h
+]0;qed@archtop:~
+[?2004h
+[qed@archtop ~]$ 

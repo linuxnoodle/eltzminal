@@ -1,24 +1,28 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /* use monospace font */
+  font-family: monospace;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
-
+  color: #afafaf;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  overflow: hidden;
+  /*overflow: hidden;*/
   height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
   border: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060606;
 }
 
 a {
@@ -31,64 +35,14 @@ a:hover {
   color: #535bf2;
 }
 
-h1 {
-  text-align: center;
-}
-
-input,
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button {
-  cursor: pointer;
-}
-
-button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
-}
-
-input,
-button {
-  outline: none;
-}
-
 #text {
-  height: 100vh;
-  /* make text start at top left of viewport */
-  padding: 0;
-  margin: 0;
-  /* make text take up entire viewport */
-  width: 100vw;
-  overflow: hidden;
-  position: absolute;
-  z-index: 0;
-  
+  border: blue 1px solid;
+  white-space: pre-wrap;
 }
 
-/* make #input take up entire viewport, and place over #text */
 #input {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
+  border: red 1px solid;
+  height: 2em;
 }
 
 @media (prefers-color-scheme: dark) {
