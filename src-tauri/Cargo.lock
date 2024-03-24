@@ -57,16 +57,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ansi-to-html"
-version = "0.2.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d73c455ae09fa2223a75114789f30ad605e9e297f79537953523366c05995f5f"
-dependencies = [
- "regex",
- "thiserror",
-]
-
-[[package]]
 name = "anyhow"
 version = "1.0.81"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -623,7 +613,6 @@ checksum = "56ce8c6da7551ec6c462cbaf3bfbc75131ebbfa1c944aeaa9dab51ca1c5f0c3b"
 name = "eltzminal"
 version = "0.0.0"
 dependencies = [
- "ansi-to-html",
  "anyhow",
  "portable-pty",
  "serde",

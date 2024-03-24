@@ -1,5 +1,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod ansi;
+
 use tauri::Manager;
 use std::io::Write;
 use std::sync::{Arc, Mutex};
