@@ -1,6 +1,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-
-pub mod ansi;
+#![feature(extern_types)]
 
 use tauri::Manager;
 use std::io::Write;
@@ -8,6 +7,9 @@ use std::ffi::CString;
 use std::sync::{Arc, Mutex};
 use serde::{ser::Serializer, Serialize};
 use portable_pty::{CommandBuilder, PtySize, native_pty_system};
+
+mod ansi;
+use crate::ansi::convert_ansi_to_html;
 
 // -- anyhow::Error but with serde serialization
 // Only really necessary because portable_pty throws anyhow::Error,
@@ -69,7 +71,7 @@ fn main() -> CmdResult<()> {
             writer: Arc::new(Mutex::new(writer)),
         })
         .setup(|app| {
-            let mut buffer = [0; 1024];
+            let mut buffer = [0; 2048];
             // Clone handle to allow access from within thread
             let app_handle = app.handle().clone();
             std::thread::spawn(move || {
@@ -79,16 +81,23 @@ fn main() -> CmdResult<()> {
                     if n > 0 {
                         let s = String::from_utf8_lossy(&buffer[..n]).to_string();
                         let len = s.len();
-                        
-                        let csa: CString = CString::new(s).unwrap();
-                        let cv: Vec<u8> = csa.into_bytes_with_nul();
-                        let mut tmp: Vec<i8> = cv.into_iter().map(|c| c as i8).collect::<_>(); // line 7
-                        let _cptr: *mut i8 = tmp.as_mut_ptr();
-                        
-                        let converted: *mut libc::c_char = unsafe { ansi::convert_ansi_to_html(_cptr, len as u32) };
-                        let csb = unsafe { CString::from_raw(converted) };
 
-                        let _ = app_handle.emit_all("output", Some(csb.to_str().unwrap()));
+                        let cs = CString::new(s).unwrap();
+                        let raw_ptr: *mut i8 = cs.into_raw();
+
+                        let raw_output = unsafe {
+                            convert_ansi_to_html(
+                                raw_ptr,
+                                len as u32
+                            )
+                        };
+
+                        let output = unsafe {
+                            CString::from_raw(raw_output)
+                                .to_string_lossy()
+                                .to_string()
+                        };
+                        let _ = app_handle.emit_all("output", output);
                     }
                 }
             });
