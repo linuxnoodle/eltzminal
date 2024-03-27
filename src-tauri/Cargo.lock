@@ -614,6 +614,7 @@ name = "eltzminal"
 version = "0.0.0"
 dependencies = [
  "anyhow",
+ "libc",
  "portable-pty",
  "serde",
  "serde_json",

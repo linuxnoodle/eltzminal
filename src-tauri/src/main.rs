@@ -1,9 +1,10 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-mod ansi;
+pub mod ansi;
 
 use tauri::Manager;
 use std::io::Write;
+use std::ffi::CString;
 use std::sync::{Arc, Mutex};
 use serde::{ser::Serializer, Serialize};
 use portable_pty::{CommandBuilder, PtySize, native_pty_system};
@@ -77,8 +78,17 @@ fn main() -> CmdResult<()> {
                     let n = reader.read(&mut buffer).unwrap();
                     if n > 0 {
                         let s = String::from_utf8_lossy(&buffer[..n]).to_string();
-                        let converted = ansi_to_html::convert(&s).unwrap();
-                        let _ = app_handle.emit_all("output", Some(converted));
+                        let len = s.len();
+                        
+                        let csa: CString = CString::new(s).unwrap();
+                        let cv: Vec<u8> = csa.into_bytes_with_nul();
+                        let mut tmp: Vec<i8> = cv.into_iter().map(|c| c as i8).collect::<_>(); // line 7
+                        let _cptr: *mut i8 = tmp.as_mut_ptr();
+                        
+                        let converted: *mut libc::c_char = unsafe { ansi::convert_ansi_to_html(_cptr, len as u32) };
+                        let csb = unsafe { CString::from_raw(converted) };
+
+                        let _ = app_handle.emit_all("output", Some(csb.to_str().unwrap()));
                     }
                 }
             });
